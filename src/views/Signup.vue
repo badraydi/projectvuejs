@@ -1,4 +1,5 @@
 <template>
+  <NavbarAuth />
   <form @click.prevent>
     <div class="g-3 align-item-center">
       <h1>Sign Up</h1>
@@ -51,8 +52,10 @@
 import axios from "axios";
 import useValidate from "@vuelidate/core";
 import { required, email, minLength } from "@vuelidate/validators";
+import NavbarAuth from "../components/Header/NavbarAuth.vue"
 export default {
   name: "SignUpPage",
+  components: {NavbarAuth},
   data() {
     return {
       v$: useValidate(),

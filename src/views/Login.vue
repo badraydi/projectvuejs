@@ -1,4 +1,5 @@
 <template>
+  <NavbarAuth />
   <form @click.prevent>
     <div class="g-3 align-item-center">
       <h1>Login</h1>
@@ -45,8 +46,10 @@ import axios from "axios";
 import useValidate from "@vuelidate/core";
 import { required, email } from "@vuelidate/validators";
 import { reactive, computed } from "vue";
+import NavbarAuth from "../components/Header/NavbarAuth.vue"
 export default {
   name: "LogInPage",
+  components: {NavbarAuth},
   //compostion API
   setup() {
     //data
