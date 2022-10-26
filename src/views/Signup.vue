@@ -9,6 +9,7 @@
           placeholder="Enter Your Name"
           v-model="name"
         />
+        <span class="error-feedback" v-if="v$.name.$error">{{v$.name.$errors[0].$message}}</span>
       </div>
       <br />
       <div class="col-auto d-block mx-auto">
@@ -18,6 +19,7 @@
           placeholder="Enter Your Email"
           v-model="email"
         />
+        <span class="error-feedback" v-if="v$.email.$error">{{v$.email.$errors[0].$message}}</span>
       </div>
       <br />
       <div class="col-auto d-block mx-auto">
@@ -27,6 +29,7 @@
           placeholder="Enter Your password"
           v-model="pass"
         />
+        <span class="error-feedback" v-if="v$.pass.$error">{{v$.pass.$errors[0].$message}}</span>
       </div>
       <br />
       <div class="col-auto d-block mx-auto">
@@ -37,8 +40,9 @@
 </template>
 
 <script>
+import axios from "axios";
 import useValidate from "@vuelidate/core";
-import { required, email } from "@vuelidate/validators";
+import { required, email, minLength } from "@vuelidate/validators";
 export default {
   name: "SignUpPage",
   data() {
@@ -52,14 +56,16 @@ export default {
   validations() {
     return {
       name: { required },
-      pass: { required },
+      pass: { required, minLength:minLength(6)},
+      email: { required, email },
     };
   },
   methods:{
-  signUpNow(){
+  async signUpNow(){
     this.v$.$validate();
     if(!this.v$.$error){
         console.log("form Validated Successfully");
+       let result = await axios.post('url','passParam');
     }else{
         console.log("form Validation Failed");
     }
@@ -67,3 +73,10 @@ export default {
 },
 };
 </script>
+
+<style lang="scss" scoped>
+.error-feedback{
+  color:red;
+  font-size: 0.85em;
+}
+</style>
