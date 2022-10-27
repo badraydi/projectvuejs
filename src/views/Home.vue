@@ -1,12 +1,18 @@
 <template>
-  <navbar />
-  <h1>Hello User, Welcome on Home Page</h1>
+  <RouterView />
+  <div>
+    <NavbarAuth />
+  </div>
+  <img src="../../public/image/vuejs.jpg" />
 </template>
 
 <script>
-import Navbar from "../components/Header/Navbar.vue";
+import NavbarAuth from "../components/Header/NavbarAuth.vue";
 export default {
-  components: { Navbar },
   name: "Home",
+  components: { NavbarAuth },
 };
 </script>
+
+<style>
+</style>

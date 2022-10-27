@@ -95,6 +95,12 @@
       "email": "rick.grimes@gmail.com",
       "pass": "qsdqssd",
       "id": 16
+    },
+    {
+      "name": "hello",
+      "email": "badr@vue.dev",
+      "pass": "123456",
+      "id": 17
     }
   ]
 }

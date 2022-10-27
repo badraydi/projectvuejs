@@ -41,7 +41,7 @@
   </form>
 </template>
   
-  <script>
+<script lang="ts">
 import axios from "axios";
 import useValidate from "@vuelidate/core";
 import { required, email } from "@vuelidate/validators";
@@ -84,9 +84,10 @@ export default {
         let result = await axios.get(
           `http://localhost:3000/users?users?email=${this.state.email}&pass=${this.state.pass}`
         );
+        console.log("ffffffffffffff");
         if (result.status == 200 && result.data.length > 0) {
           localStorage.setItem("users-info", JSON.stringify(result.data[0]));
-          this.$router.push({ name: 'home' });
+          this.$router.push({ name: 'Dashboard' });
         } else {
           this.userNotFoundErr = "User Not Found";
         }

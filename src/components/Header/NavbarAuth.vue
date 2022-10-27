@@ -1,9 +1,9 @@
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="80"/>
-
+    <RouterLink to="/">
+      <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="80" />
+    </RouterLink>
     <div class="wrapper">
-
       <nav>
         <RouterLink to="/sign-up">Sign Up</RouterLink>
         <RouterLink to="/log-in">Log In</RouterLink>
@@ -14,8 +14,8 @@
 
 <script>
 export default {
-    name:"NavbarAuth",
-}
+  name: "NavbarAuth",
+};
 </script>
 
 <style>
